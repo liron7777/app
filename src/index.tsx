@@ -3,13 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from "react-redux";
+// const rootReducer = combineReducers({ operationsReducer });
+// import createSagaMiddleware from "redux-saga";
+// const sagaMiddleware = createSagaMiddleware();
+import { operationsReducer } from "./redux/reducer/operationsReducer";
+import { combineReducers, createStore, applyMiddleware } from "redux";
+// import { store } from "./redux/stor.
+const rootReducer = combineReducers({ operationsReducer });
+const store = createStore(rootReducer);
+// const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+     <Provider store={store}>
+     <App />
+     </Provider>
   </React.StrictMode>
 );
 

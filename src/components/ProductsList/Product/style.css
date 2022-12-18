@@ -1,0 +1,12 @@
+.product{
+    display: flex;
+    border-style: solid
+}
+
+.details{
+margin-right: 30px;
+}
+
+.delete{
+    height: 50px;
+}
